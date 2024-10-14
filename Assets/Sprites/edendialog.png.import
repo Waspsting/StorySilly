@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dmm64sc5qmdap"
+path="res://.godot/imported/edendialog.png-6e13d2d5bb5e7a1d9858bdac059b7cb6.image"
+
+[deps]
+
+source_file="res://Assets/Sprites/edendialog.png"
+dest_files=["res://.godot/imported/edendialog.png-6e13d2d5bb5e7a1d9858bdac059b7cb6.image"]
+
+[params]
+

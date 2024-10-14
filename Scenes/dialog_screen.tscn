@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://cigyny2l3600t"]
+
+[ext_resource type="Script" path="res://Scripts/dialog_screen.gd" id="1_crmjj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sg8re"]
+
+[node name="Dialog_screen" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_crmjj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("PlaceholderTexture2D_sg8re")
+
+[node name="actual_dialog" type="Label" parent="Control/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NPC_profile" type="TextureRect" parent="Control/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.739583
+anchor_top = -1.5
+anchor_right = 1.0
+flip_h = true
+metadata/_edit_use_anchors_ = true
