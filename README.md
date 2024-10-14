@@ -1,2 +1,2 @@
 # StorySilly
- Idek dude
+ Story game made in Godot
