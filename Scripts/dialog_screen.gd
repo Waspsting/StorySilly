@@ -13,7 +13,4 @@ func typetext (text):
 func _input(_event: InputEvent) -> void:
 	if(Input.is_action_just_pressed("interact")&& is_typing): text_speed = 0.008
 func set_profile (image): 
-	var img = Image.new()
-	img.load(image)
-	var texture = ImageTexture.create_from_image(img)
-	%NPC_profile.texture=texture
+	%NPC_profile.texture=load(image)

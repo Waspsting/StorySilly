@@ -49,7 +49,27 @@ hframes = 3
 vframes = 4
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_k8fcm")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(64, 18)
+
+[node name="NPC_interaction" parent="StaticBody2D2" instance=ExtResource("3_oc2pv")]
+suicide = true
+dialog = "res://Assets/Dialogs/steven.json"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/NPC_interaction"]
+shape = SubResource("RectangleShape2D_hc26d")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(0, -2)
+texture = ExtResource("4_ccdbj")
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("RectangleShape2D_k8fcm")
 
 [node name="player" parent="." instance=ExtResource("1_g2kdp")]

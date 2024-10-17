@@ -36,11 +36,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NPC_profile" type="TextureRect" parent="Control/TextureRect"]
+[node name="NPC_profile" type="TextureRect" parent="Control"]
 unique_name_in_owner = true
-layout_mode = 0
-anchor_left = 0.739583
-anchor_top = -1.5
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -269.0
+offset_top = -469.0
+offset_bottom = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+stretch_mode = 4
 flip_h = true
-metadata/_edit_use_anchors_ = true

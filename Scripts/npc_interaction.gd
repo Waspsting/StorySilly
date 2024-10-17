@@ -1,4 +1,5 @@
 extends Area2D
+@export var suicide = false 
 var is_in_hitbox = false
 var is_yapping = false
 @export_file("*.json") var dialog 
@@ -20,6 +21,8 @@ func _input(_event: InputEvent) -> void:
 			if currentline == len(clump):
 				dialog_screen.visible = false
 				currentline = 0
+				if suicide:
+					get_parent().queue_free()
 				return 
 			dialog_screen.visible = true
 			dialog_screen.set_profile(clump[currentline].image)
