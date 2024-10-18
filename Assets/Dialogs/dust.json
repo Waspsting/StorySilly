@@ -1,10 +1,5 @@
 [
 	[
-		{"image":"","text":"*The dust was cleaned*"},
-	],
-	[
-		{"image":"res://Assets/Sprites/edendialog.png","text":"Wazzup gang"},
-		{"image":"res://Assets/Sprites/edendialog.png","text":"My name Eden"},
-		{"image":"res://Assets/Sprites/edendialog.png","text":"Im too sigma"}
+		{"image":"res://Assets/Sprites/clear.png","text":"*The dust was cleaned*"},
 	]
 ]

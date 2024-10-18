@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cigyny2l3600t"]
+[gd_scene load_steps=5 format=3 uid="uid://cigyny2l3600t"]
 
 [ext_resource type="Script" path="res://Scripts/dialog_screen.gd" id="1_crmjj"]
+[ext_resource type="Texture2D" uid="uid://dkkfpmm2pusc3" path="res://Assets/Sprites/textbox.png" id="2_s7bhd"]
+[ext_resource type="FontFile" uid="uid://ctggjw85h5sy3" path="res://Assets/Fonts/DancingScript-Variable.ttf" id="3_jewbd"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sg8re"]
+[sub_resource type="LabelSettings" id="LabelSettings_ci7ku"]
+font = ExtResource("3_jewbd")
+font_size = 20
+font_color = Color(0.871596, 0.674858, 0.236375, 1)
 
 [node name="Dialog_screen" type="CanvasLayer"]
 visible = false
@@ -22,10 +27,11 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -200.0
+offset_top = -137.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("PlaceholderTexture2D_sg8re")
+texture = ExtResource("2_s7bhd")
+expand_mode = 2
 
 [node name="actual_dialog" type="Label" parent="Control/TextureRect"]
 unique_name_in_owner = true
@@ -33,8 +39,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 20.0
+offset_right = -16.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = SubResource("LabelSettings_ci7ku")
 
 [node name="NPC_profile" type="TextureRect" parent="Control"]
 unique_name_in_owner = true
@@ -44,9 +55,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -269.0
-offset_top = -469.0
-offset_bottom = -200.0
+offset_left = -385.0
+offset_top = -522.0
+offset_bottom = -137.0
 grow_horizontal = 0
 grow_vertical = 0
 stretch_mode = 4
