@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cp8pk0sh1wfjv" path="res://Assets/Sprites/tilemap1.png" id="3_vdfbb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o67mx"]
-size = Vector2(16, 16)
+size = Vector2(16, 17)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qo62a"]
 animation = &"idle-down"
@@ -410,7 +410,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x386p"]
-size = Vector2(16, 16.5)
+size = Vector2(16, 17.25)
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("interaction_collider")]
 position = Vector2(1, 1)
@@ -425,7 +425,7 @@ vframes = 8
 frame = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_o67mx")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -445,6 +445,7 @@ libraries = {
 position = Vector2(0, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.375)
 shape = SubResource("RectangleShape2D_x386p")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
