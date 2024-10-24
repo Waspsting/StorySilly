@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://c3j64xeibdcvp"]
+[gd_scene load_steps=8 format=4 uid="uid://c3j64xeibdcvp"]
 
 [ext_resource type="Texture2D" uid="uid://cp8pk0sh1wfjv" path="res://Assets/Sprites/tilemap1.png" id="1_lc3ao"]
 [ext_resource type="PackedScene" uid="uid://dc6y3smdqtnmp" path="res://Scenes/player.tscn" id="2_1qwnl"]
 [ext_resource type="PackedScene" uid="uid://bkg0gdjovj5ud" path="res://Scenes/scene_trigger.tscn" id="3_440t2"]
+[ext_resource type="Texture2D" uid="uid://4a6qph84b530" path="res://Assets/Sprites/lightsource.png" id="4_uxo3v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lv48e"]
 texture = ExtResource("1_lc3ao")
@@ -31,7 +32,7 @@ tile_map_data = PackedByteArray("AAD//wAAAAADAAEAAAAAAAAAAAADAAEAAAAAAP//AAADAAE
 tile_set = SubResource("TileSet_mp20o")
 
 [node name="player" parent="." instance=ExtResource("2_1qwnl")]
-position = Vector2(0, -11)
+position = Vector2(-56, -14)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(0, -10)
@@ -48,3 +49,15 @@ texture = ExtResource("1_lc3ao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 shape = SubResource("RectangleShape2D_dnsfl")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.176419, 0.176419, 0.176419, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(160, -96)
+color = Color(0.976471, 0.486275, 0, 1)
+energy = 0.94
+shadow_enabled = true
+shadow_color = Color(0.180392, 0.180392, 0.180392, 1)
+texture = ExtResource("4_uxo3v")
+texture_scale = 6.67
