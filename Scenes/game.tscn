@@ -96,3 +96,15 @@ texture = ExtResource("1_vq1nl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 shape = SubResource("RectangleShape2D_mtd8d")
+
+[node name="SceneTrigger2" parent="." instance=ExtResource("6_2it0h")]
+position = Vector2(-113, 49)
+connected_scene = "mainmenu"
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneTrigger2"]
+position = Vector2(-1.90735e-06, -3.45707e-06)
+scale = Vector2(0.15625, 0.3125)
+texture = ExtResource("1_vq1nl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger2"]
+shape = SubResource("RectangleShape2D_mtd8d")
