@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://4hweh6qgoxhe"]
+[gd_scene load_steps=15 format=3 uid="uid://4hweh6qgoxhe"]
 
 [ext_resource type="FontFile" uid="uid://ctggjw85h5sy3" path="res://Assets/Fonts/DancingScript-Variable.ttf" id="1_2kngc"]
 [ext_resource type="Script" path="res://Scripts/mainmenu.gd" id="1_pwed1"]
 [ext_resource type="Texture2D" uid="uid://cp8pk0sh1wfjv" path="res://Assets/Sprites/tilemap1.png" id="1_ygqol"]
+[ext_resource type="AudioStream" uid="uid://copdourj3kl7c" path="res://Assets/Audio/menu_press.mp3" id="4_quhiw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbym0"]
 texture = ExtResource("1_ygqol")
@@ -40,13 +41,47 @@ corner_radius_bottom_left = 25
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ghke"]
+texture = ExtResource("1_ygqol")
+modulate_color = Color(0.385493, 0.385492, 0.385492, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ywt5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1oagv"]
+bg_color = Color(0.0507343, 0.203617, 0.281323, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnyru"]
+bg_color = Color(0.0231398, 0.130372, 0.186118, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pnjt"]
+bg_color = Color(0.0634237, 0.234287, 0.321162, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
 [node name="Mainmenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 12.0
-offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pwed1")
@@ -56,8 +91,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -12.0
-offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_rbym0")
@@ -76,7 +109,7 @@ offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_2kngc")
@@ -87,7 +120,18 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wa7pr")
 theme_override_styles/normal = SubResource("StyleBoxFlat_o2lv6")
 text = "Start game"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_2kngc")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ytnki")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6wgw5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wa7pr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o2lv6")
+text = "Options"
+
+[node name="leave" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_2kngc")
@@ -98,5 +142,50 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wa7pr")
 theme_override_styles/normal = SubResource("StyleBoxFlat_o2lv6")
 text = "Leave"
 
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_leave_pressed"]
+[node name="optionsmenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0ghke")
+
+[node name="HSlider" type="HSlider" parent="optionsmenu"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 139.0
+offset_right = 271.0
+offset_bottom = 243.0
+max_value = 2.0
+step = 0.0
+
+[node name="back" type="Button" parent="optionsmenu"]
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 169.0
+offset_bottom = 87.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_2kngc")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ywt5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1oagv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cnyru")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6pnjt")
+text = "Back"
+
+[node name="Label" type="Label" parent="optionsmenu"]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 164.0
+offset_right = 449.0
+offset_bottom = 229.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_quhiw")
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/leave" to="." method="_on_leave_pressed"]
+[connection signal="drag_ended" from="optionsmenu/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="pressed" from="optionsmenu/back" to="." method="_on_back_pressed"]
