@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://c3j64xeibdcvp"]
+[gd_scene load_steps=9 format=4 uid="uid://c3j64xeibdcvp"]
 
 [ext_resource type="Texture2D" uid="uid://cp8pk0sh1wfjv" path="res://Assets/Sprites/tilemap1.png" id="1_lc3ao"]
 [ext_resource type="PackedScene" uid="uid://dc6y3smdqtnmp" path="res://Scenes/player.tscn" id="2_1qwnl"]
 [ext_resource type="PackedScene" uid="uid://bkg0gdjovj5ud" path="res://Scenes/scene_trigger.tscn" id="3_440t2"]
 [ext_resource type="Texture2D" uid="uid://4a6qph84b530" path="res://Assets/Sprites/lightsource.png" id="4_uxo3v"]
+[ext_resource type="AudioStream" uid="uid://c0w8h8mfbd6xn" path="res://Assets/Audio/Monkeys Spinning Monkeys.mp3" id="5_kxytx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lv48e"]
 texture = ExtResource("1_lc3ao")
@@ -61,3 +62,9 @@ shadow_enabled = true
 shadow_color = Color(0.180392, 0.180392, 0.180392, 1)
 texture = ExtResource("4_uxo3v")
 texture_scale = 6.67
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(160, -96)
+stream = ExtResource("5_kxytx")
+autoplay = true
+max_distance = 200.0

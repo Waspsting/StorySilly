@@ -24,4 +24,12 @@ func _on_back_pressed() -> void:
 func _on_h_slider_drag_ended(value_changed: bool) -> void:
 	AudioServer.set_bus_volume_db(audio, linear_to_db($optionsmenu/HSlider.value))
 	$AudioStreamPlayer.play()
-	$optionsmenu/Label.text = "volume = " + str($optionsmenu/HSlider.value)
+	$optionsmenu/Label.text = "volume = " + str($optionsmenu/HSlider.value * 100) + "%"
+
+
+func fullscreen_on(toggled_on: bool) -> void:
+	$AudioStreamPlayer.play()
+	if toggled_on == true :
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else : 
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
