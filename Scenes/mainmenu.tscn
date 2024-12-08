@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://4hweh6qgoxhe"]
+[gd_scene load_steps=15 format=3 uid="uid://4hweh6qgoxhe"]
 
 [ext_resource type="FontFile" uid="uid://ctggjw85h5sy3" path="res://Assets/Fonts/DancingScript-Variable.ttf" id="1_2kngc"]
 [ext_resource type="Script" path="res://Scripts/mainmenu.gd" id="1_pwed1"]
-[ext_resource type="Texture2D" uid="uid://cp8pk0sh1wfjv" path="res://Assets/Sprites/tilemap1.png" id="1_ygqol"]
+[ext_resource type="Texture2D" uid="uid://b7nwn201y6obl" path="res://Assets/Sprites/menubg.png" id="2_h7kox"]
 [ext_resource type="AudioStream" uid="uid://copdourj3kl7c" path="res://Assets/Audio/menu_press.mp3" id="4_quhiw"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbym0"]
-texture = ExtResource("1_ygqol")
-modulate_color = Color(0.385493, 0.385492, 0.385492, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_auq2f"]
+texture = ExtResource("2_h7kox")
+expand_margin_left = 3.0
+modulate_color = Color(0.230315, 0.230315, 0.230315, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytnki"]
 
@@ -40,10 +41,6 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ghke"]
-texture = ExtResource("1_ygqol")
-modulate_color = Color(0.385493, 0.385492, 0.385492, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ywt5"]
 
@@ -93,9 +90,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 156.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_rbym0")
+theme_override_styles/panel = SubResource("StyleBoxTexture_auq2f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -150,24 +149,41 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 156.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_0ghke")
+theme_override_styles/panel = SubResource("StyleBoxTexture_auq2f")
 
 [node name="HSlider" type="HSlider" parent="optionsmenu"]
 layout_mode = 0
-offset_left = 17.0
+offset_left = 14.0
 offset_top = 139.0
-offset_right = 271.0
+offset_right = 268.0
 offset_bottom = 243.0
 max_value = 2.0
 step = 0.01
 value = 1.0
 
+[node name="apply" type="Button" parent="optionsmenu"]
+offset_left = 964.0
+offset_top = 541.0
+offset_right = 1115.0
+offset_bottom = 613.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_2kngc")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ywt5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1oagv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cnyru")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6pnjt")
+text = "Apply"
+
 [node name="back" type="Button" parent="optionsmenu"]
-offset_left = 18.0
+layout_mode = 0
+offset_left = 15.0
 offset_top = 15.0
-offset_right = 169.0
+offset_right = 166.0
 offset_bottom = 87.0
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_2kngc")
@@ -180,17 +196,17 @@ text = "Back"
 
 [node name="Label" type="Label" parent="optionsmenu"]
 layout_mode = 0
-offset_left = 284.0
+offset_left = 281.0
 offset_top = 164.0
-offset_right = 449.0
+offset_right = 446.0
 offset_bottom = 229.0
 text = "volume = 100%"
 
 [node name="CheckBox" type="CheckBox" parent="optionsmenu"]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 17.0
 offset_top = 234.0
-offset_right = 125.0
+offset_right = 122.0
 offset_bottom = 276.0
 scale = Vector2(2.24, 2.2)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dgw6m")
@@ -203,5 +219,6 @@ stream = ExtResource("4_quhiw")
 [connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/leave" to="." method="_on_leave_pressed"]
 [connection signal="drag_ended" from="optionsmenu/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="pressed" from="optionsmenu/apply" to="." method="_on_apply_pressed"]
 [connection signal="pressed" from="optionsmenu/back" to="." method="_on_back_pressed"]
 [connection signal="toggled" from="optionsmenu/CheckBox" to="." method="fullscreen_on"]
