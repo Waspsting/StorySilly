@@ -19,5 +19,5 @@ func loaddata ():
 	if error: 
 		print(error)
 		return
-	options["volume"] = config_file.get_value("options", "volume", options["volume"])
-	options["fullscreen"] = config_file.get_value("options", "fullscreen", options["fullscreen"])
+	options["volume"] = config_file.get_value("options", "volume", 1)
+	options["fullscreen"] = config_file.get_value("options", "fullscreen", false)

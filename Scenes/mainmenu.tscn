@@ -5,10 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b7nwn201y6obl" path="res://Assets/Sprites/menubg.png" id="2_h7kox"]
 [ext_resource type="AudioStream" uid="uid://copdourj3kl7c" path="res://Assets/Audio/menu_press.mp3" id="4_quhiw"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_auq2f"]
-texture = ExtResource("2_h7kox")
-expand_margin_left = 3.0
-modulate_color = Color(0.230315, 0.230315, 0.230315, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hanpn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytnki"]
 
@@ -85,18 +82,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pwed1")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="start_menu" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = 156.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_auq2f")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="BG" type="TextureRect" parent="start_menu"]
+modulate = Color(0.233925, 0.233925, 0.233925, 1)
+material = SubResource("ShaderMaterial_hanpn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h7kox")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="start_menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,13 +111,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -195.0
-offset_top = -152.0
+offset_top = -162.0
 offset_right = 195.0
-offset_bottom = 152.0
+offset_bottom = 162.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
 
-[node name="start" type="Button" parent="VBoxContainer"]
+[node name="start" type="Button" parent="start_menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_2kngc")
@@ -119,9 +127,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ytnki")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6wgw5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wa7pr")
 theme_override_styles/normal = SubResource("StyleBoxFlat_o2lv6")
-text = "Start game"
+text = "Start"
 
-[node name="options" type="Button" parent="VBoxContainer"]
+[node name="options" type="Button" parent="start_menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_2kngc")
@@ -132,7 +140,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wa7pr")
 theme_override_styles/normal = SubResource("StyleBoxFlat_o2lv6")
 text = "Options"
 
-[node name="leave" type="Button" parent="VBoxContainer"]
+[node name="leave" type="Button" parent="start_menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("1_2kngc")
@@ -143,29 +151,42 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wa7pr")
 theme_override_styles/normal = SubResource("StyleBoxFlat_o2lv6")
 text = "Leave"
 
-[node name="optionsmenu" type="Panel" parent="."]
-visible = false
+[node name="options_menu" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 3.0
-offset_right = 156.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_auq2f")
 
-[node name="HSlider" type="HSlider" parent="optionsmenu"]
+[node name="BG" type="TextureRect" parent="options_menu"]
+modulate = Color(0.233925, 0.233925, 0.233925, 1)
+material = SubResource("ShaderMaterial_hanpn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h7kox")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="volume_slider" type="HSlider" parent="options_menu"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 14.0
-offset_top = 139.0
+offset_top = 170.0
 offset_right = 268.0
-offset_bottom = 243.0
+offset_bottom = 212.0
 max_value = 2.0
 step = 0.01
 value = 1.0
 
-[node name="apply" type="Button" parent="optionsmenu"]
+[node name="apply" type="Button" parent="options_menu"]
+unique_name_in_owner = true
+layout_mode = 0
 offset_left = 964.0
 offset_top = 541.0
 offset_right = 1115.0
@@ -179,7 +200,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_cnyru")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6pnjt")
 text = "Apply"
 
-[node name="back" type="Button" parent="optionsmenu"]
+[node name="back" type="Button" parent="options_menu"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 15.0
@@ -194,15 +215,19 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_cnyru")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6pnjt")
 text = "Back"
 
-[node name="Label" type="Label" parent="optionsmenu"]
+[node name="volume" type="Label" parent="options_menu"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 281.0
-offset_top = 164.0
-offset_right = 446.0
-offset_bottom = 229.0
-text = "volume = 100%"
+offset_left = 279.0
+offset_top = 171.0
+offset_right = 476.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 24
+text = "100%"
+vertical_alignment = 1
 
-[node name="CheckBox" type="CheckBox" parent="optionsmenu"]
+[node name="fullscreen_check" type="CheckBox" parent="options_menu"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 17.0
 offset_top = 234.0
@@ -212,13 +237,15 @@ scale = Vector2(2.24, 2.2)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dgw6m")
 text = "fullscreen"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("4_quhiw")
 
-[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/leave" to="." method="_on_leave_pressed"]
-[connection signal="drag_ended" from="optionsmenu/HSlider" to="." method="_on_h_slider_drag_ended"]
-[connection signal="pressed" from="optionsmenu/apply" to="." method="_on_apply_pressed"]
-[connection signal="pressed" from="optionsmenu/back" to="." method="_on_back_pressed"]
-[connection signal="toggled" from="optionsmenu/CheckBox" to="." method="fullscreen_on"]
+[connection signal="pressed" from="start_menu/VBoxContainer/start" to="." method="start"]
+[connection signal="pressed" from="start_menu/VBoxContainer/options" to="." method="options"]
+[connection signal="pressed" from="start_menu/VBoxContainer/leave" to="." method="leave"]
+[connection signal="drag_ended" from="options_menu/volume_slider" to="." method="volume_set"]
+[connection signal="value_changed" from="options_menu/volume_slider" to="." method="volume_changing"]
+[connection signal="pressed" from="options_menu/apply" to="." method="apply"]
+[connection signal="pressed" from="options_menu/back" to="." method="back"]
+[connection signal="toggled" from="options_menu/fullscreen_check" to="." method="fullscreen_on"]
